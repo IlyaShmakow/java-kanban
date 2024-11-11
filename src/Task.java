@@ -6,11 +6,17 @@ public class Task {
     private String description;
     public TaskStatus status;
 
-    public Task(int id, String title, String description,TaskStatus status ) {
+    public Task(int id, String title, String description, TaskStatus status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
+    }
+
+    public Task(String title, String description, TaskStatus status) {
+        this.title = title;
+        this.description = description;
+        this.status = TaskStatus.NEW;
     }
 
     public int getId() {
@@ -28,6 +34,7 @@ public class Task {
     public TaskStatus getStatus() {
         return status;
     }
+
 
     @Override
     public String toString() {
@@ -50,5 +57,21 @@ public class Task {
     @Override
     public int hashCode() {
         return Objects.hash(id, title, description, status);
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
     }
 }
