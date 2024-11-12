@@ -4,16 +4,14 @@ import java.util.Objects;
 
 public class Epic extends Task {
 
-    private final List<Integer> subtasksId;
+    private final List<Integer> subtasksId = new ArrayList<>();
 
-    public Epic(int id, String title, String description, TaskStatus status, List<Integer> subtasks) {
+    public Epic(int id, String title, String description, TaskStatus status) {
         super(id, title, description, status);
-        this.subtasksId = new ArrayList<>(subtasks);
     }
 
-    public Epic(String title, String description, TaskStatus status, List<Integer> subtasks) {
-        super(title, description, status);
-        this.subtasksId = new ArrayList<>(subtasks);
+    public Epic(String title, String description) {
+        super(title, description, TaskStatus.NEW);
     }
 
     public void addSubtask(int subtaskId) {

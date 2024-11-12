@@ -10,20 +10,22 @@ public class Main {
         System.out.println(task1);
         System.out.println(task2);
 
-        Epic epic1 = new Epic ("Эпик1", "Описание эпика 1", TaskStatus.NEW, new ArrayList<>());
+        Epic epic1 = new Epic ("Эпик1", "Описание эпика 1");
         taskManager.addEpic(epic1);
         Subtask subtask1 = new Subtask ("Подзадача1", "Описание подзадачи1", TaskStatus.NEW, epic1.getId());
-        taskManager.addSubtask(subtask1, epic1.getId());
+        taskManager.addSubtask(subtask1);
         Subtask subtask2 = new Subtask("Подзадача2", "Описание подзадачи2", TaskStatus.NEW, epic1.getId());
-        taskManager.addSubtask(subtask2, epic1.getId());
+        taskManager.addSubtask(subtask2);
         System.out.println(epic1);
         System.out.println(subtask1);
         System.out.println(subtask2);
+        Epic epic3 = new Epic("Эпик3", "Описание эпика 3");
+        taskManager.addEpic(epic3);
 
-        Epic epic2 = new Epic("Эпик2", "Описание эпика 2", TaskStatus.NEW, new ArrayList<>());
+        Epic epic2 = new Epic("Эпик2", "Описание эпика 2");
         taskManager.addEpic(epic2);
         Subtask subtask3 = new Subtask("Подзадача3", "Описание подзадачи3", TaskStatus.NEW, epic2.getId());
-        taskManager.addSubtask(subtask3, epic2.getId());
+        taskManager.addSubtask(subtask3);
 
         System.out.println("Все задачи:");
         for (Task task: taskManager.getAllTasks()){

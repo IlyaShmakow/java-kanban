@@ -32,10 +32,11 @@ public class TaskManager {
         return epic;
     }
 
-    public Subtask addSubtask(Subtask subtask, int epicId) { // добавление подзадачи
+    public Subtask addSubtask(Subtask subtask) { // добавление подзадачи
         if (subtask == null) {
             return null;
         }
+        int epicId = subtask.getEpicId();
         Epic epic = epics.get(epicId);
         if (epic == null) {
             return null;
@@ -69,8 +70,13 @@ public class TaskManager {
     }
 
     public void clearAllEpics() { // удаление всех эпиков
+        for(Epic epic : epics.values()){
+            List<Integer> subtaskIds = epic.getSubtasks();
+                for (Integer subtaskId : subtaskIds){
+                    subtasks.remove(subtaskId);
+                }
+        }
         epics.clear();
-        clearAllSubtasks();
     }
 
     public Epic getEpicById(int id) { //получение эпика по id
@@ -96,7 +102,7 @@ public class TaskManager {
         subtasks.clear();
         for (Epic epic : epics.values()) {
             epic.clearSubtasks();
-            epic.setStatus(TaskStatus.NEW);
+            checkEpicStatus(epic.getId());
         }
     }
 
@@ -178,7 +184,6 @@ public class TaskManager {
         List<Subtask> checkSubtasksEpic = getSubtasksByEpicId(epicId);
         if (checkSubtasksEpic.isEmpty()) {
             epic.setStatus(TaskStatus.NEW);
-            return;
         } else {
             boolean done = true;
             boolean statusNew = true;
