@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        TaskManager taskManager = new TaskManager();
+        InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task1 = new Task ("Задача 1", "Описание1", TaskStatus.NEW);
         Task task2 = new Task ("Задача 2", "Описание2", TaskStatus.NEW);
         taskManager.addTask(task1);
