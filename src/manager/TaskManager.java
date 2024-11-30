@@ -1,3 +1,9 @@
+package manager;
+
+import task.Epic;
+import task.Subtask;
+import task.Task;
+
 import java.util.List;
 
 public interface TaskManager {
@@ -39,5 +45,7 @@ public interface TaskManager {
     Epic updateEpic(Epic updatedEpic);
 
     Subtask updateSubtask(Subtask updatedSubtask);
+
+    List<Task> getHistory();
 
 }

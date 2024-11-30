@@ -1,7 +1,6 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
+import task.Epic;
+import task.TaskStatus;
 
 import static org.junit.jupiter.api.Assertions.*;
 class EpicTest {

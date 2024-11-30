@@ -1,5 +1,8 @@
+import manager.InMemoryHistoryManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import task.Task;
+import task.TaskStatus;
 
 import java.util.List;
 
@@ -12,7 +15,7 @@ class InMemoryHistoryManagerTest {
     @BeforeEach
     void setUp(){
         historyManager = new InMemoryHistoryManager();
-        task = new Task (1,"Название задачи", "Описание задачи", TaskStatus.NEW);
+        task = new Task(1,"Название задачи", "Описание задачи", TaskStatus.NEW);
     }
 
     @Test
